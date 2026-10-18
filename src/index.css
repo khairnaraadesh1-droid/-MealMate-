@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-cream: #FAF7F2;
+    --bg-card: #FFFFFF;
+    --bg-card-subtle: #F5EFEB;
+    --border-warm: #EAE2D7;
+    --text-primary: #292524;
+    --text-secondary: #78716C;
+    --accent-saffron: #D97706;
+    --accent-terracotta: #C2410C;
+    --accent-green: #15803D;
+    --accent-green-light: #DCFCE7;
+    --font-main: 'Outfit', 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  .dark {
+    --bg-cream: #0F1216;
+    --bg-card: #181D24;
+    --bg-card-subtle: #212730;
+    --border-warm: #2E3642;
+    --text-primary: #F5F5F4;
+    --text-secondary: #A8A29E;
+    --accent-saffron: #F59E0B;
+    --accent-terracotta: #EA580C;
+    --accent-green: #22C55E;
+    --accent-green-light: #064E3B;
+  }
+
+  body {
+    font-family: var(--font-main);
+    background-color: var(--bg-cream);
+    color: var(--text-primary);
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+/* Glassmorphism helpers */
+.glass-nav {
+  background: rgba(250, 247, 242, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.dark .glass-nav {
+  background: rgba(15, 18, 22, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.dark .glass-card {
+  background: rgba(24, 29, 36, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Print styling for Grocery List & Recipes */
+@media print {
+  header, footer, nav, button:not(.print-allow), .no-print {
+    display: none !important;
+  }
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .print-page {
+    width: 100% !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+}
